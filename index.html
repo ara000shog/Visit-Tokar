@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Card</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    width: 100%;
+    max-width: 380px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.header {
+    background: linear-gradient(#0d3b91, #001a3d);
+    color: white;
+    text-align: center;
+    padding: 28px 18px 38px;
+}
+
+/* === АВАТАР === */
+.avatar {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    overflow: hidden;            /* Обрезает всё лишнее */
+    background: #e6e6e6;
+}
+
+/* Картинка внутри круга */
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* Полностью заполнит круг */
+    display: block;
+}
+
+.name {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.role {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: -24px;
+    margin-bottom: 14px;
+}
+
+.action-btn {
+    width: 48px;
+    height: 48px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.info {
+    padding: 18px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px;
+}
+
+.text-block {
+    flex: 1;
+}
+
+.label {
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.value {
+    font-size: 16px;
+    color: #111;
+    word-break: break-all;
+}
+
+/* === МАЛЕНЬКАЯ КНОПКА КОПИРОВАНИЯ === */
+.copy-btn {
+    border: none;
+    background: #f0f0f0;
+    border-radius: 8px;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.copy-btn:active {
+    background: #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="header">
+
+        <div class="avatar">
+            <!-- 🔥 ВСТАВЬ СЮДА СВОЮ КАРТИНКУ -->
+            <!-- Пример: <img src="photo.jpg" alt="Avatar"> -->
+            <img src="photo_2026-02-16_19-43-31.jpg" alt="Avatar">
+        </div>
+
+        <div class="name">VADYM TOKAR</div>
+        <div class="role">Technical director</div>
+    </div>
+
+    <div class="actions">
+    <button class="action-btn" onclick="copyText('phone')" title="Скопировать номер">
+        📞
+    </button>
+
+    <button class="action-btn" onclick="copyText('mail')" title="Скопировать email">
+        ✉️
+    </button>
+</div>
+
+    <div class="info">
+
+    <div class="info-item">
+        <div class="text-block">
+            <div class="label">phone number</div>
+            <div class="value" id="phone">+34 678 21 75 88</div>
+        </div>
+    </div>
+
+    <div class="info-item">
+        <div class="text-block">
+            <div class="label">mail</div>
+            <div class="value" id="mail">tokarvadim69@gmail.com</div>
+        </div>
+    </div>
+
+    <!-- 🔥 САЙТ — КЛИКАБЕЛЬНЫЙ -->
+    <div class="info-item">
+        <div class="text-block">
+            <div class="label">company website</div>
+            <div class="value">
+                <a href="https://odyssey-group-eu.com"
+                   target="_blank"
+                   style="color:#0d3b91; text-decoration:none;">
+                   odyssey-group-eu.com
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔥 ПОСЛЕДНЯЯ СТРОКА — БЕЗ КНОПКИ -->
+    <div class="info-item">
+        <div class="text-block">
+            <div class="label">ODYSSEY GROUP</div>
+            <div class="value">Technical director</div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+<script>
+function copyText(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+}
+</script>
+
+</body>
+</html>
